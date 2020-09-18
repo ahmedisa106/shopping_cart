@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1072b60-150a-44a3-8a78-6a5d5b4bea3a" name="Default Changelist" comment="" />
+    <list default="true" id="c1072b60-150a-44a3-8a78-6a5d5b4bea3a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/CommonModule/Resources/lang/ar/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/CommonModule/Resources/lang/ar/site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/CommonModule/Resources/lang/en/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/CommonModule/Resources/lang/en/site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ConfigModule/Database/Seeders/ConfigsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ConfigModule/Database/Seeders/ConfigsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Http/Controllers/FrontModuleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Http/Controllers/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Database/Migrations/2020_09_05_164519_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Database/Migrations/2020_09_05_164519_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Entities/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Entities/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Http/Controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Repository/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Resources/views/products/index.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +45,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -139,7 +177,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../icetour_onas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../icecart_oudrose" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -169,30 +207,56 @@
       <workItem from="1600033025613" duration="21000" />
       <workItem from="1600067839389" duration="15575000" />
       <workItem from="1600091617709" duration="621000" />
+      <workItem from="1600166329706" duration="5875000" />
+      <workItem from="1600175513185" duration="6374000" />
+      <workItem from="1600185952085" duration="661000" />
+      <workItem from="1600198083331" duration="1847000" />
+      <workItem from="1600263281455" duration="1008000" />
+      <workItem from="1600425718862" duration="1945000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="496" y="156" key="FileChooserDialogImpl" timestamp="1600092489667">
-      <screen x="75" y="0" width="1205" height="720" />
+    <state x="346" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600166398335">
+      <screen x="87" y="0" width="1010" height="617" />
+    </state>
+    <state x="346" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/87.0.1010.617@87.0.1010.617" timestamp="1600166398335" />
+    <state x="593" y="179" key="FileChooserDialogImpl" timestamp="1600427356569">
+      <screen x="87" y="0" width="1449" height="864" />
     </state>
     <state x="496" y="156" key="FileChooserDialogImpl/75.0.1205.720@75.0.1205.720" timestamp="1600092489667" />
     <state x="586" y="187" key="FileChooserDialogImpl/75.0.1461.864@75.0.1461.864" timestamp="1600033044924" />
+    <state x="440" y="128" key="FileChooserDialogImpl/87.0.1010.617@87.0.1010.617" timestamp="1600185961031" />
+    <state x="593" y="179" key="FileChooserDialogImpl/87.0.1449.864@87.0.1449.864" timestamp="1600427356569" />
     <state x="179" y="6" key="SettingsEditor" timestamp="1600009029516">
       <screen x="75" y="0" width="1205" height="720" />
     </state>
     <state x="179" y="6" key="SettingsEditor/75.0.1205.720@75.0.1205.720" timestamp="1600009029516" />
-    <state x="334" y="161" key="run.anything.popup" timestamp="1600087365413">
-      <screen x="75" y="0" width="1205" height="720" />
+    <state x="303" y="138" key="run.anything.popup" timestamp="1600171219454">
+      <screen x="87" y="0" width="1010" height="617" />
     </state>
     <state x="334" y="161" key="run.anything.popup/75.0.1205.720@75.0.1205.720" timestamp="1600087365413" />
-    <state x="399" y="151" width="672" height="565" key="search.everywhere.popup" timestamp="1600075554828">
-      <screen x="75" y="0" width="1205" height="720" />
+    <state x="303" y="138" key="run.anything.popup/87.0.1010.617@87.0.1010.617" timestamp="1600171219454" />
+    <state x="358" y="129" width="672" height="485" key="search.everywhere.popup" timestamp="1600166972806">
+      <screen x="87" y="0" width="1010" height="617" />
     </state>
     <state x="399" y="151" width="672" height="565" key="search.everywhere.popup/75.0.1205.720@75.0.1205.720" timestamp="1600075554828" />
     <state x="468" y="181" width="672" height="678" key="search.everywhere.popup/75.0.1461.864@75.0.1461.864" timestamp="1600026467617" />
+    <state x="358" y="129" width="672" height="485" key="search.everywhere.popup/87.0.1010.617@87.0.1010.617" timestamp="1600166972806" />
   </component>
 </project>

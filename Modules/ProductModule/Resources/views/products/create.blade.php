@@ -144,11 +144,26 @@
                                 </ul>
                             </div>
                             <div class="col-sm-5">
-                                <label for="status" class="label-control col-sm-3"> @lang('commonmodule::site.status') :</label>
-                                <div class="col-sm-6">
+                                <label for="status" class="label-control col-sm-3"> @lang('commonmodule::site.status'):</label>
+                                <div class="col-sm-8">
                                     <select class="form-control" name="active">
                                         <option value="1">@lang('commonmodule::site.active')</option>
                                         <option value="0">@lang('commonmodule::site.unactivate')</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <br><br>
+                            <div class="col-sm-5">
+                                <label for="status" class="label-control col-sm-3"> @lang('commonmodule::site.type'):</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="type">
+                                        <option value="0">@lang('commonmodule::site.default_pro')</option>
+                                        <option value="1">@lang('commonmodule::site.featured')</option>
+                                        <option value="2">@lang('commonmodule::site.best_rated')</option>
+                                        <option value="3">@lang('commonmodule::site.deal_of_week')</option>
 
                                     </select>
 

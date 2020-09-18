@@ -3,7 +3,6 @@
 namespace Modules\ConfigModule\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\ConfigModule\Entities\Config;
 use Modules\ConfigModule\Entities\ConfigCategory;
 
@@ -106,6 +105,21 @@ class ConfigsTableSeeder extends Seeder
             'en' => [
                 'display_name' => 'email',
             ],
+            'type' => 1,
+            'cat_id' => 2
+        ]);
+
+        $config::create([
+            'is_static' => 1,
+            'static_value' => 'minofya/shebin el-kom',
+            'ar' => [
+                'display_name' => 'العنوان',
+                'value' => 'minofya/shebin el-kom',
+            ],
+            'en' => [
+                'display_name' => 'minofya/shebin el-kom',
+            ],
+            'var' => 'address',
             'type' => 1,
             'cat_id' => 2
         ]);

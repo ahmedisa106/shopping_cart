@@ -16,10 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('photo')->nullable();
-            $table->double('sell_price');
-            $table->double('price_before_discount');
-            $table->integer('current_quantity');
-            $table->integer('active');
+            $table->double('sell_price')->default(0);
+            $table->double('price_before_discount')->default(0);
+            $table->integer('current_quantity')->default(0);
+            $table->integer('type')->default(0);  /* 0 => default , 1 => featured , 2 => best rated , 3 => deal of week */
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
         Schema::create('product_translations', function (Blueprint $table) {

@@ -76,7 +76,7 @@ class ProductsController extends Controller
 
             })
             ->addColumn('active', function ($row) {
-                $active = '<button class="btn btn-success" value=""><i class="fa fa-check"></i> Active</button> <a href="' . url('admin-panel/products/' . $row->id . '/unActive') . '" class="btn btn-default"> <i class=" button fa fa-repeat"></i></a>';
+                $active = '<button  class="btn btn-success" value=""><i class="fa fa-check"></i> Active</button> <a  href="' . url('admin-panel/products/' . $row->id . '/unActive') . '" class="btn btn-default "> <i class=" button fa fa-repeat"></i></a>';
                 $unActive = '<button class="btn btn-warning" value=""><i class="fa fa-close"></i> UnActive </button> <a href="' . url('admin-panel/products/' . $row->id . '/active') . '" class="btn btn-default"> <i class=" button fa fa-repeat"></i></a>';
 
                 if ($row->active == 1) {
@@ -117,6 +117,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         $request_data = $request->except(['_token', 'photo', 'photos', 'product_cats']);
 
         $request->validate([

@@ -151,6 +151,21 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <br><br>
+                            <div class="col-sm-5">
+                                <label for="status" class="label-control col-sm-3"> @lang('commonmodule::site.type'):</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="type">
+                                        <option value="0" {{$product->type == 0 ?'selected' :''}}>@lang('commonmodule::site.default_pro')</option>
+                                        <option value="1" {{$product->type == 1 ?'selected' :''}}>@lang('commonmodule::site.featured')</option>
+                                        <option value="2" {{$product->type == 2 ?'selected' :''}}>@lang('commonmodule::site.best_rated')</option>
+                                        <option value="3" {{$product->type == 3 ?'selected' :''}}>@lang('commonmodule::site.deal_of_week')</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ class Product extends Model
     use Translatable;
 
     protected $table = 'products';
-    protected $fillable = ['photo', 'sell_price', 'price_before_discount', 'current_quantity', 'active'];
+    protected $fillable = ['photo', 'sell_price', 'price_before_discount', 'current_quantity', 'active', 'type'];
     protected $translatedAttributes = ['title', 'description', 'slug'];
 
     public $translationModel = ProductTranslations::class;

@@ -8,11 +8,11 @@
                 <div class="col d-flex flex-row">
                     <div class="top_bar_contact_item">
                         <div class="top_bar_icon"><img src="{{asset('/assets/front')}}/images/phone.png" alt=""></div>
-                        +38 068 005 3570
+                        {{$config['phone']}}
                     </div>
                     <div class="top_bar_contact_item">
                         <div class="top_bar_icon"><img src="{{asset('/assets/front')}}/images/mail.png" alt=""></div>
-                        <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <a href="mailto:fastsales@gmail.com">{{$config['email']}}</a></div>
                     <div class="top_bar_content ml-auto">
                         <div class="top_bar_menu">
                             <ul class="standard_dropdown top_bar_dropdown">
@@ -24,14 +24,7 @@
                                         <li><a href="#">Japanese</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li><a href="#">EUR Euro</a></li>
-                                        <li><a href="#">GBP British Pound</a></li>
-                                        <li><a href="#">JPY Japanese Yen</a></li>
-                                    </ul>
-                                </li>
+
                             </ul>
                         </div>
 
@@ -62,8 +55,8 @@
 
                 <!-- Logo -->
                 <div class="col-lg-2 col-sm-3 col-3 order-1">
-                    <div class="logo_container">
-                        <div class="logo"><a href="{{url('/')}}">OneTech</a></div>
+                    <div class="logo_container" style="left: 0;">
+                        <div class="logo"><a href="{{url('/')}}">{{$config['title']}} </a></div>
                     </div>
                 </div>
 
@@ -79,12 +72,12 @@
                                             <span class="custom_dropdown_placeholder clc">All Categories</span>
                                             <i class="fas fa-chevron-down"></i>
                                             <ul class="custom_list clc">
-                                                <li><a class="clc" href="#">All Categories</a></li>
-                                                <li><a class="clc" href="#">Computers</a></li>
-                                                <li><a class="clc" href="#">Laptops</a></li>
-                                                <li><a class="clc" href="#">Cameras</a></li>
-                                                <li><a class="clc" href="#">Hardware</a></li>
-                                                <li><a class="clc" href="#">Smartphones</a></li>
+
+                                                @foreach($categories as $cat)
+                                                    <li><a class="clc" href="#">{{$cat->title}}</a></li>
+
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
@@ -143,31 +136,25 @@
                             </div>
 
                             <ul class="cat_menu">
-                                <li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-                                <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
-                                <li class="hassubs">
-                                    <a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
-                                    <ul>
-                                        <li class="hassubs">
-                                            <a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-                                            <ul>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-                                <li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-                                <li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-                                <li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-                                <li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-                                <li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
+                                @foreach($categories as $cat)
+                                    <li class="hassubs"><a href="#">{{$cat->title}} @if($cat->child->count()>0) <i class="fas fa-chevron-right ml-auto"></i> @endif</a>
+                                        @if($cat->child->count() >0)
+                                            @foreach($cat->child as $ch)
+                                                <ul>
+                                                    <a href="">{{$ch->title}}</a>
+
+                                                </ul>
+                                            @endforeach
+
+                                        @endif
+
+                                    </li>
+
+
+
+                                @endforeach
+
+
                             </ul>
                         </div>
 
@@ -176,22 +163,7 @@
                         <div class="main_nav_menu ml-auto">
                             <ul class="standard_dropdown main_nav_dropdown">
                                 <li><a href="{{url('/')}}">Home<i class="fas fa-chevron-down"></i></a></li>
-                                <li class="hassubs">
-                                    <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </li>
+
                                 <li class="hassubs">
                                     <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
                                     <ul>

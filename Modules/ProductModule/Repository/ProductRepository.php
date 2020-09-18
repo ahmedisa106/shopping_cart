@@ -80,4 +80,11 @@ class ProductRepository
         }
 
     }
+
+    public function pro_type($type)
+    {
+
+        return Product::with('categories', 'photos')->where('type', $type)->get();
+
+    }
 }

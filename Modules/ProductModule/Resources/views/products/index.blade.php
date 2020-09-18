@@ -132,6 +132,18 @@
                 ]
             });
 
+
+        });
+
+    </script>
+    <script>
+        $('document').ready(function () {
+
+            $('.unActive').on('click', function (e) {
+                e.preventDefault();
+                alert('yes');
+
+            });
         });
     </script>
 
