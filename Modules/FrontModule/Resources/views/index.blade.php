@@ -177,7 +177,7 @@
                                         <div class="featured_slider_item">
                                             <div class="border_active"></div>
                                             <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('/images/products/'.$product->photo)}}" alt=""></div>
+                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('/images/products/'.$product->photo)}}" style=" min-width: 90px; ;max-width: 100px;" alt=""></div>
                                                 <div class="product_content">
                                                     <div class="product_price discount">${{$product->sell_price}}<span>${{$product->price_before_discount}}</span></div>
                                                     <div class="product_name">
@@ -189,7 +189,13 @@
                                                             <input type="radio" name="product_color" style="background:#000000">
                                                             <input type="radio" name="product_color" style="background:#999999">
                                                         </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
+                                                        <form class="AddToCart" action="{{route('front.addToCart',$product->id)}}" method="post">
+                                                            @csrf
+                                                            @method('post')
+
+                                                            <button type="submit" class="product_cart_button">{{Cart::get($product->id)['id'] ?'Remove From Cart' :'Add to Cart'}}</button>
+                                                        </form>
+
                                                     </div>
                                                 </div>
                                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -228,12 +234,17 @@
                                                             <input type="radio" name="product_color" style="background:#000000">
                                                             <input type="radio" name="product_color" style="background:#999999">
                                                         </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
+                                                        <form action="{{route('front.addToCart',$f_pro->id)}}" method="post">
+                                                            @csrf
+                                                            @method('post')
+
+                                                            <button type="submit" class="product_cart_button">{{Cart::get($f_pro->id)['id'] ?'Remove From Cart' :'Add to Cart'}}</button>
+                                                        </form>
+
                                                     </div>
                                                 </div>
                                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                                                 <ul class="product_marks">
-                                                    <li class="product_mark product_discount">-25%</li>
                                                     <li class="product_mark product_new">new</li>
                                                 </ul>
                                             </div>
@@ -2998,4 +3009,89 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    @include('commonmodule::includes.swal')
+    <script>
+        $('document').ready(function () {
+            $(document).on('submit', '.AddToCart', function (e) {
+
+                e.preventDefault();
+                formData = $(this).serialize();
+                $.ajax({
+                    'type': 'post',
+                    'url': $(this).attr('action'),
+                    data: formData,
+
+                    'statusCode': {
+                        200: function (response) {
+
+
+                            $bt = $('.AddToCart').find('button');
+                            $bt.html(' Remove From Cart');
+                            if (response > 0) {
+                                $cc = $('#cart_count').find('span').html(response);
+                            } else {
+                                $cc = $('#cart_count').find('span').html(0);
+                            }
+
+
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                onOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: '@lang('commonmodule::site.data_created_successfully')'
+                            })
+
+
+                        },
+                        401: function (response) {
+                            $bt = $('.AddToCart').find('button');
+                            $bt.html('Add To Cart');
+
+                            if (response > 0) {
+                                $cc = $('#cart_count').find('span').html(response);
+                            } else {
+                                $cc = $('#cart_count').find('span').html(0);
+                            }
+
+
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                onOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: '@lang('commonmodule::site.data_deleted_successfully')'
+                            })
+
+
+                        },
+                    }
+                });
+
+
+            })
+
+        });
+
+    </script>
 @endsection

@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,9 +163,13 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*packages i installed */
-        Intervention\Image\ImageServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
 
+        /*intervention Image*/
+        Intervention\Image\ImageServiceProvider::class,
+        /*yajra dataTable*/
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        /*cart*/
+        Darryldecode\Cart\CartServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -234,6 +238,7 @@ return [
         /*packages i installed*/
 
         'Image' => Intervention\Image\Facades\Image::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
 
     ],
 

@@ -137,14 +137,62 @@
 
     </script>
     <script>
-        $('document').ready(function () {
+        $(document).on('click', '#updateActive', function (e) {
 
-            $('.unActive').on('click', function (e) {
-                e.preventDefault();
-                alert('yes');
+            e.preventDefault();
+            icon = $(this).find('#icon');
+            icon.removeClass('fa-check');
+            icon.removeClass('fa-close');
+            icon.html(' @lang('commonmodule::site.loading')');
+            icon.addClass('fa-spinner');
 
+            tr = $(this).closest('tr');
+
+            id = tr.find('#product_id').val()
+            active = tr.find('#active').val()
+            $.ajax({
+
+                'type': 'POST',
+                'url': '{{route('product.updateActive')}}',
+                data: {
+                    '_token': '{{csrf_token()}}',
+                    'id': id,
+                    'active': active,
+                },
+                'statusCode': {
+                    200: function (response) {
+
+
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: '@lang('commonmodule::site.data_updated_successfully')'
+                        });
+
+                        $('#productsTable').DataTable().ajax.reload();
+
+
+                    },
+                    422: function (response) {
+                        swal("خطأ", "حدث خطأ ما، أعد ادخال البيانات الصحيحة", "error", {button: "Ok",});
+                    }
+                },
             });
+
         });
     </script>
+
+
 
 @stop

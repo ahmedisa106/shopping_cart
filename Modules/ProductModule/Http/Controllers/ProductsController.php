@@ -76,16 +76,24 @@ class ProductsController extends Controller
 
             })
             ->addColumn('active', function ($row) {
-                $active = '<button  class="btn btn-success" value=""><i class="fa fa-check"></i> Active</button> <a  href="' . url('admin-panel/products/' . $row->id . '/unActive') . '" class="btn btn-default "> <i class=" button fa fa-repeat"></i></a>';
-                $unActive = '<button class="btn btn-warning" value=""><i class="fa fa-close"></i> UnActive </button> <a href="' . url('admin-panel/products/' . $row->id . '/active') . '" class="btn btn-default"> <i class=" button fa fa-repeat"></i></a>';
-
+                $product_id = '<input type="hidden" id="product_id" value="' . $row->id . '">';
                 if ($row->active == 1) {
-                    return $active;
-
+                    $active_num = 0;
+                    $btn_font = "fa fa-check";
+                    $btn = "btn btn-success";
+                    $text = trans('commonmodule::site.active');
                 } else {
-                    return $unActive;
-                }
+                    $active_num = 1;
+                    $btn_font = "fa fa-close";
+                    $btn = "btn btn-danger";
+                    $text = trans('commonmodule::site.unactive');
 
+                }
+                $active_hidden = '<input type="hidden" name="active" id="active" value=' . $active_num . ' />';
+
+                $active_tag = '<button type="button" id="updateActive" class="' . $btn . '"><i id="icon" class="' . $btn_font . '" aria-hidden="true">' . ' ' . $text . '</i> </button>';
+
+                return $product_id . $active_hidden . '  ' . $active_tag;
             })
             ->addColumn('operations', function ($row) {
 
@@ -258,12 +266,17 @@ class ProductsController extends Controller
 
     }
 
-    public function active($id)
+    public function active(Request $request)
     {
+        try {
 
-        $product = $this->productRepo->getById($id);
-        $product->update(['active' => 1]);
-        return redirect()->route('products.index')->with('update', 'data updated successfully');
+
+            $this->productRepo->updateActive($request->id, $request->active);
+            return response()->json('updated', 200);
+        } catch (\Exception $exception) {
+            return response()->json('error', 422);
+
+        }
 
     }
 }

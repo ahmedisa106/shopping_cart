@@ -87,4 +87,9 @@ class ProductRepository
         return Product::with('categories', 'photos')->where('type', $type)->get();
 
     }
+
+    public function updateActive($id, $active)
+    {
+        return Product::where('id', $id)->update(['active' => $active]);
+    }
 }

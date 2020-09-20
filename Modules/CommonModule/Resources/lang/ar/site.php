@@ -10,7 +10,7 @@ return [
     'delete' => 'حذف',
     'update' => 'تعديل',
     'active' => 'مفعل',
-    'unactive' => 'غير التفعيل',
+    'unactive' => 'غير مفعل',
     'display_lang' => 'اختصار اللغه',
     'lang' => 'اللغه',
     'home' => 'الرئيسيه',

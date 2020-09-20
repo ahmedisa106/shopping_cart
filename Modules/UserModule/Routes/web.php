@@ -30,6 +30,8 @@ Route::group(
         Route::get('/users/ajax', 'UsersController@dataTable');
         Route::get('/users/delete/{id}', 'UsersController@destroy');
     });
+
+
 });
 
 

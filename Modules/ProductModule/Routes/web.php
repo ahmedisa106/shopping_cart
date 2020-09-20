@@ -30,8 +30,8 @@ Route::group(
 
         Route::resource('products', 'ProductsController')->except(['show', 'delete']);
         Route::get('/products/ajax', 'ProductsController@dataTable');
-        Route::get('/products/{id}/unActive', 'ProductsController@unActive')->name('product.unActive');
-        Route::get('/products/{id}/active', 'ProductsController@active')->name('product.active');
+
+        Route::post('/products/updateActive', 'ProductsController@active')->name('product.updateActive');
         Route::get('/products/delete/{id}', 'ProductsController@destroy')->name('products.delete');
 
         Route::get('/products/actived', 'ProductsController@actived')->name('products.actived');

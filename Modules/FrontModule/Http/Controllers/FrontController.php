@@ -2,6 +2,7 @@
 
 namespace Modules\FrontModule\Http\Controllers;
 
+use Cart;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -25,8 +26,7 @@ class FrontController extends Controller
 
     }
 
-    public
-    function index()
+    public function index()
     {
         $categories = $this->categoryRepo->getAllParent();
         $products = $this->productRepo->getAll();
@@ -36,69 +36,53 @@ class FrontController extends Controller
         return view('frontmodule::index', compact('categories', 'products', 'featured', 'best', 'deals'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public
-    function create()
+    public function addToCart(Request $request, $id)
     {
-        return view('frontmodule::create');
+
+        if ($request->ajax()) {
+
+            $product = $this->productRepo->getById($id);
+            if (Cart::get($product->id)['id'] == $id) {
+                Cart::remove($id);
+                $cc = Cart::getContent()->count();
+                return response()->json($cc, '401');
+            } else {
+                Cart::add(array(
+                    'id' => $product->id,
+                    'name' => $product->title,
+                    'price' => $product->sell_price,
+                    'quantity' => 1,
+                    'attributes' => array()
+
+
+                ));
+                $cc = Cart::getContent()->count();
+
+                return response()->json($cc, '200');
+            }
+
+        }
+
+////        $product = Product::find($id);
+////        if (Cart::get($product->id)['id'] == $id) {
+////
+////            Cart::remove($id);
+////            return redirect('/')->with('delete', 'data removed');
+////        } else {
+////            Cart::add(array(
+////                'id' => $product->id,
+////                'name' => $product->title,
+////                'price' => $product->sell_price,
+////                'quantity' => $product->current_quantity,
+////                'attributes' => array()
+////
+////            ));
+//
+//        }
+//
+//        return redirect('/')->with('success', 'data added successfully');
+
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public
-    function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public
-    function show($id)
-    {
-        return view('frontmodule::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public
-    function edit($id)
-    {
-        return view('frontmodule::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public
-    function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public
-    function destroy($id)
-    {
-        //
-    }
 }

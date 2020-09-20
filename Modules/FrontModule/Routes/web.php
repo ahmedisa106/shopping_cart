@@ -14,4 +14,5 @@
 
 Route::prefix('/')->group(function () {
     Route::get('/', 'FrontController@index');
+    Route::post('/addToCart/{product_id}', 'FrontController@addToCart')->name('front.addToCart');
 });
