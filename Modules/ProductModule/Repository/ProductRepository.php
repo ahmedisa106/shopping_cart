@@ -23,7 +23,7 @@ class ProductRepository
 
     public function getAll()
     {
-        return Product::with('categories', 'photos')->get();
+        return Product::with('translations')->get();
     }
 
     public function save($productData, $product_photos, $product_cats)
@@ -84,7 +84,7 @@ class ProductRepository
     public function pro_type($type)
     {
 
-        return Product::with('categories', 'photos')->where('type', $type)->get();
+        return Product::with('translations')->where('type', $type)->get();
 
     }
 

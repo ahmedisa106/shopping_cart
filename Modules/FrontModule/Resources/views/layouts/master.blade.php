@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @include('frontmodule::includes.css')
 
+
 </head>
 
 <body>
@@ -30,6 +31,7 @@
 </div>
 
 @include('frontmodule::includes.js')
+
 </body>
 
 </html>

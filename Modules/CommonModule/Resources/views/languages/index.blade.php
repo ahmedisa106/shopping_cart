@@ -29,7 +29,7 @@
                         <h3 class="box-title">@lang('commonmodule::site.languages')</h3>
                         {{-- Add New --}}
                         <a href="{{route('languages.create')}}" type="button" class="btn btn-success pull-right"><i class="fa fa-plus"
-                                                                                        aria-hidden="true"></i> &nbsp;
+                                                                                                                    aria-hidden="true"></i> &nbsp;
                             @lang('commonmodule::site.create_new') </a>
                     </div>
                     <!-- /.box-header -->
@@ -45,7 +45,6 @@
                                 <th>@lang('commonmodule::site.display_lang')</th>
                                 <th>@lang('commonmodule::site.active')</th>
                                 <th>@lang('commonmodule::site.operations')</th>
-
 
 
                             </tr>
@@ -93,36 +92,33 @@
     <script>
 
 
-                $(document).ready(function () {
+        $(document).ready(function () {
 
 
-                    $('#lang').DataTable({
-                        dom: 'lBfrtip',
-                        buttons: [
-                            { extend: 'print',messageBottom:' <strong>All Rights Reserved to IceCode .</strong>'},
-                            { extend: 'excel' },
-                        ] ,
-                        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-                        "processing": true,
-                        "serverSide": true,
-                        "ajax": {
-                            "url": "{{ url('admin-panel/languages/ajax') }}",
-                            "type": "GET"
-                        },
-                        "columns": [
-                            { data: 'id', name: 'id' },
-                            { data: 'lang', name: 'lang' },
-                            { data: 'display_lang', name: 'display_lang' },
-                            { data: 'active', name: 'active' },
-                            { data: 'operations', name: 'operations', orderable: false, searchable: false},
+            $('#lang').DataTable({
+                dom: 'lBfrtip',
+                buttons: [
+                    {extend: 'print', messageBottom: ' <strong>All Rights Reserved to IceCode .</strong>'},
+                    {extend: 'excel'},
+                ],
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "{{ url('admin-panel/languages/ajax') }}",
+                    "type": "GET"
+                },
+                "columns": [
+                    {data: 'id', name: 'id'},
+                    {data: 'lang', name: 'lang'},
+                    {data: 'display_lang', name: 'display_lang'},
+                    {data: 'active', name: 'active'},
+                    {data: 'operations', name: 'operations', orderable: false, searchable: false},
 
 
+                ]
+            });
 
-
-
-                        ]
-                    });
-
-                });
+        });
     </script>
 @endsection

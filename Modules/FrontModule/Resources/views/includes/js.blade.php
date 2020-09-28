@@ -10,5 +10,7 @@
 <script src="{{asset('/assets/front/plugins/slick-1.8.0/slick.js')}}"></script>
 <script src="{{asset('/assets/front/plugins/easing/easing.js')}}"></script>
 <script src="{{asset('/assets/front/js/custom.js')}}"></script>
+<script src="{{asset('/assets/front')}}/js/cart_custom.js"></script>
+
 
 @yield('js')

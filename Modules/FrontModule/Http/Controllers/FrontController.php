@@ -6,6 +6,7 @@ use Cart;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\ProductModule\Entities\Product;
 use Modules\ProductModule\Repository\CategoryRepository;
 use Modules\ProductModule\Repository\ProductRepository;
 
@@ -39,48 +40,49 @@ class FrontController extends Controller
     public function addToCart(Request $request, $id)
     {
 
-        if ($request->ajax()) {
+//        if ($request->ajax()) {
+//
+//            $product = $this->productRepo->getById($id);
+//            if (Cart::get($product->id)['id'] == $id) {
+//                Cart::remove($id);
+//                $cc = Cart::getContent()->count();
+//                return response()->json($cc, '401');
+//            } else {
+//                Cart::add(array(
+//                    'id' => $product->id,
+//                    'name' => $product->title,
+//                    'price' => $product->sell_price,
+//                    'quantity' => 1,
+//                    'attributes' => array()
+//
+//
+//                ));
+//                $cc = Cart::getContent()->count();
+//
+//                return response()->json($cc, '200');
+//            }
+//
+//        }
 
-            $product = $this->productRepo->getById($id);
-            if (Cart::get($product->id)['id'] == $id) {
-                Cart::remove($id);
-                $cc = Cart::getContent()->count();
-                return response()->json($cc, '401');
-            } else {
-                Cart::add(array(
-                    'id' => $product->id,
-                    'name' => $product->title,
-                    'price' => $product->sell_price,
-                    'quantity' => 1,
-                    'attributes' => array()
+        $product = Product::find($id);
 
+        if (Cart::get($product->id)['id'] == $id) {
 
-                ));
-                $cc = Cart::getContent()->count();
+            Cart::remove($id);
+            return redirect('/')->with('delete', 'data removed');
+        } else {
+            Cart::add(array(
+                'id' => $product->id,
+                'name' => $product->title,
+                'price' => $product->sell_price,
+                'quantity' => 1,
+                'attributes' => array()
 
-                return response()->json($cc, '200');
-            }
+            ));
 
         }
 
-////        $product = Product::find($id);
-////        if (Cart::get($product->id)['id'] == $id) {
-////
-////            Cart::remove($id);
-////            return redirect('/')->with('delete', 'data removed');
-////        } else {
-////            Cart::add(array(
-////                'id' => $product->id,
-////                'name' => $product->title,
-////                'price' => $product->sell_price,
-////                'quantity' => $product->current_quantity,
-////                'attributes' => array()
-////
-////            ));
-//
-//        }
-//
-//        return redirect('/')->with('success', 'data added successfully');
+        return redirect('/')->with('success', 'data added successfully');
 
 
     }

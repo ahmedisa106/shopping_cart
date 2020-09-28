@@ -4,6 +4,8 @@
     {{$config['title']}}
 @stop
 @section('content')
+
+
     <!-- Banner -->
 
     <div class="banner">
@@ -104,7 +106,8 @@
                                             <div class="deals_info_line d-flex flex-row justify-content-start">
                                                 <div class="deals_item_category"><a href="#">{{$deal->title}}</a></div>
                                                 <div class="deals_item_price_a ml-auto">
-                                                    <del> $ {{$deal->price_before_discount}}</del>
+
+                                                    <del style="color: black"> $ {{$deal->price_before_discount}}</del>
                                                 </div>
                                             </div>
                                             <div class="deals_info_line d-flex flex-row justify-content-start">
@@ -179,7 +182,9 @@
                                             <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('/images/products/'.$product->photo)}}" style=" min-width: 90px; ;max-width: 100px;" alt=""></div>
                                                 <div class="product_content">
-                                                    <div class="product_price discount">${{$product->sell_price}}<span>${{$product->price_before_discount}}</span></div>
+                                                    <div class="product_price discount">${{$product->sell_price}}
+                                                        <del style="color: black">${{$product->price_before_discount}}</del>
+                                                    </div>
                                                     <div class="product_name">
                                                         <div><a href="product.html">{{$product->title}}</a></div>
                                                     </div>
@@ -198,7 +203,8 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                                <div class=" product_fav"><i class="fas fa-heart"></i>
+                                                </div>
                                                 <ul class="product_marks">
                                                     <li class="product_mark product_new">new</li>
                                                 </ul>
@@ -224,7 +230,9 @@
                                             <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('/images/products/'.$f_pro->photo)}}" alt=""></div>
                                                 <div class="product_content">
-                                                    <div class="product_price discount">${{$f_pro->sell_price}}<span>${{$f_pro->price_before_discount}}</span></div>
+                                                    <div class="product_price discount">${{$f_pro->sell_price}}
+                                                        <del style="color: black">${{$f_pro->price_before_discount}}</del>
+                                                    </div>
                                                     <div class="product_name">
                                                         <div><a href="product.html">{{$f_pro->title}}</a></div>
                                                     </div>
@@ -234,7 +242,9 @@
                                                             <input type="radio" name="product_color" style="background:#000000">
                                                             <input type="radio" name="product_color" style="background:#999999">
                                                         </div>
-                                                        <form action="{{route('front.addToCart',$f_pro->id)}}" method="post">
+
+
+                                                        <form class="AddToCart" action="{{route('front.addToCart',$f_pro->id)}}" method="post">
                                                             @csrf
                                                             @method('post')
 
@@ -269,7 +279,9 @@
                                             <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('/images/products/'.$b_pro->photo)}}" alt=""></div>
                                                 <div class="product_content">
-                                                    <div class="product_price discount">${{$b_pro->sell_price}}<span>${{$b_pro->price_before_discount}}</span></div>
+                                                    <div class="product_price discount">${{$b_pro->sell_price}}
+                                                        <del style="color: black">${{$b_pro->price_before_discount}}</del>
+                                                    </div>
                                                     <div class="product_name">
                                                         <div><a href="product.html">{{$b_pro->title}}</a></div>
                                                     </div>
@@ -279,7 +291,12 @@
                                                             <input type="radio" name="product_color" style="background:#000000">
                                                             <input type="radio" name="product_color" style="background:#999999">
                                                         </div>
-                                                        <button class="product_cart_button">Add to Cart</button>
+                                                        <form class="AddToCart" action="{{route('front.addToCart',$b_pro->id)}}" method="post">
+                                                            @csrf
+                                                            @method('post')
+
+                                                            <button type="submit" class="product_cart_button">{{Cart::get($b_pro->id)['id'] ?'Remove From Cart' :'Add to Cart'}}</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -3012,86 +3029,94 @@
 @endsection
 @section('js')
     @include('commonmodule::includes.swal')
-    <script>
-        $('document').ready(function () {
-            $(document).on('submit', '.AddToCart', function (e) {
 
-                e.preventDefault();
-                formData = $(this).serialize();
-                $.ajax({
-                    'type': 'post',
-                    'url': $(this).attr('action'),
-                    data: formData,
+    {{--    <script>--}}
 
-                    'statusCode': {
-                        200: function (response) {
+    {{--        $('document').ready(function () {--}}
 
 
-                            $bt = $('.AddToCart').find('button');
-                            $bt.html(' Remove From Cart');
-                            if (response > 0) {
-                                $cc = $('#cart_count').find('span').html(response);
-                            } else {
-                                $cc = $('#cart_count').find('span').html(0);
-                            }
+    {{--            $(document).on('submit', '.AddToCart', function (e) {--}}
+
+    {{--                e.preventDefault();--}}
+    {{--                formData = $(this).serialize();--}}
+    {{--                $.ajax({--}}
+    {{--                    'type': 'post',--}}
+    {{--                    'url': $(this).attr('action'),--}}
+    {{--                    data: formData,--}}
+
+    {{--                    'statusCode': {--}}
+    {{--                        200: function (response) {--}}
 
 
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
-                            Toast.fire({
-                                icon: 'success',
-                                title: '@lang('commonmodule::site.data_created_successfully')'
-                            })
+    {{--                            $bt = $('.AddToCart').find('button');--}}
+    {{--                            $bt.html(' Remove From Cart');--}}
+    {{--                            if (response > 0) {--}}
+    {{--                                $cc = $('#cart_count').find('span').html(response);--}}
+    {{--                            } else {--}}
+    {{--                                $cc = $('#cart_count').find('span').html(0);--}}
+    {{--                            }--}}
 
 
-                        },
-                        401: function (response) {
-                            $bt = $('.AddToCart').find('button');
-                            $bt.html('Add To Cart');
+    {{--                            const Toast = Swal.mixin({--}}
+    {{--                                toast: true,--}}
+    {{--                                position: 'top-end',--}}
+    {{--                                showConfirmButton: false,--}}
+    {{--                                timer: 3000,--}}
+    {{--                                timerProgressBar: true,--}}
+    {{--                                onOpen: (toast) => {--}}
+    {{--                                    toast.addEventListener('mouseenter', Swal.stopTimer)--}}
+    {{--                                    toast.addEventListener('mouseleave', Swal.resumeTimer)--}}
+    {{--                                }--}}
+    {{--                            })--}}
 
-                            if (response > 0) {
-                                $cc = $('#cart_count').find('span').html(response);
-                            } else {
-                                $cc = $('#cart_count').find('span').html(0);
-                            }
-
-
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
-                            Toast.fire({
-                                icon: 'success',
-                                title: '@lang('commonmodule::site.data_deleted_successfully')'
-                            })
+    {{--                            Toast.fire({--}}
+    {{--                                icon: 'success',--}}
+    {{--                                title: '@lang('commonmodule::site.data_created_successfully')'--}}
+    {{--                            })--}}
 
 
-                        },
-                    }
-                });
+    {{--                        },--}}
+    {{--                        401: function (response) {--}}
+    {{--                            $bt = $('.AddToCart').find('button');--}}
+    {{--                            $bt.html('Add To Cart');--}}
+
+    {{--                            if (response > 0) {--}}
+    {{--                                $cc = $('#cart_count').find('span').html(response);--}}
+    {{--                            } else {--}}
+    {{--                                $cc = $('#cart_count').find('span').html(0);--}}
+    {{--                            }--}}
 
 
-            })
+    {{--                            const Toast = Swal.mixin({--}}
+    {{--                                toast: true,--}}
+    {{--                                position: 'top-end',--}}
+    {{--                                showConfirmButton: false,--}}
+    {{--                                timer: 3000,--}}
+    {{--                                timerProgressBar: true,--}}
+    {{--                                onOpen: (toast) => {--}}
+    {{--                                    toast.addEventListener('mouseenter', Swal.stopTimer)--}}
+    {{--                                    toast.addEventListener('mouseleave', Swal.resumeTimer)--}}
+    {{--                                }--}}
+    {{--                            })--}}
 
-        });
+    {{--                            Toast.fire({--}}
+    {{--                                icon: 'success',--}}
+    {{--                                title: '@lang('commonmodule::site.data_deleted_successfully')'--}}
+    {{--                            })--}}
 
-    </script>
+
+    {{--                        },--}}
+    {{--                    }--}}
+    {{--                });--}}
+
+
+    {{--            })--}}
+
+    {{--        });--}}
+
+
+    {{--    </script>--}}
+
+
+
 @endsection

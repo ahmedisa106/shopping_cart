@@ -40,6 +40,9 @@
         }
     },
     "autoload": {
+        "files": [
+            "Modules/CommonModule/Helper/helper.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Modules\\": "Modules/"

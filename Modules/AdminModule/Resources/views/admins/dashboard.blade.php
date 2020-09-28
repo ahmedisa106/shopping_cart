@@ -1,8 +1,9 @@
 @extends('commonmodule::layouts.master')
 @section('title')
     @lang('commonmodule::site.dashboard')
-    @stop
+@stop
 @section('content')
+
     <section class="content-header">
         <h1>
             @lang('commonmodule::site.dashboard')

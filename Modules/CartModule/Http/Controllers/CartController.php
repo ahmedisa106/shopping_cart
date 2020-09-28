@@ -2,9 +2,11 @@
 
 namespace Modules\CartModule\Http\Controllers;
 
+use Cart;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\CartModule\Entities\Cart;
 use Modules\ProductModule\Entities\Category;
+use Modules\ProductModule\Entities\Product;
 
 class CartController extends Controller
 {
@@ -16,9 +18,49 @@ class CartController extends Controller
     public function index()
     {
 
-        $carts = Cart::where('user_id', auth()->user()->id)->get();
         $categories = Category::with('translations')->get();
-        return view('frontmodule::pages.cart', compact('carts', 'categories'));
+        $cartContent = Cart::getContent();
 
+        return view('frontmodule::pages.cart', compact('categories', 'cartContent'));
+
+    }
+
+    public function removeItem($id)
+    {
+
+        $product = Product::find($id);
+
+        if (Cart::get($product->id)['id'] == $id) {
+            Cart::remove($id);
+
+        }
+        return redirect()->back();
+
+    }
+
+    public function updateItem(Request $request)
+    {
+
+        if ($request->ajax()) {
+
+
+            $product = Product::find($request->id);
+
+            Cart::update($request->id, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $request->quantity,
+                ),
+            ));
+            $total = Cart::getTotal();
+
+
+            return response()->json([
+                'data' => $total,
+                'status' => '200',
+
+            ]);
+
+        }
     }
 }

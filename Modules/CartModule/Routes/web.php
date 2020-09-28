@@ -13,4 +13,6 @@
 
 Route::prefix('')->group(function () {
     Route::get('/cart', 'CartController@index')->name('cart.index');
+    Route::get('/cart/removeItem/{id}', 'CartController@removeItem')->name('cart.removeItem');
+    Route::get('/cart/updateItem', 'CartController@updateItem')->name('cart.updateItem');
 });
