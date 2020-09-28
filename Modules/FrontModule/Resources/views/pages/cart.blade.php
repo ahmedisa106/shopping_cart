@@ -13,7 +13,7 @@
                                 <div class="cart_title">{{$config['title']}}</div>
                                 <div class="cart_items">
                                     <ul class="cart_list">
-                                        <table class="table  table-bordered text-bold text-center">
+                                        <table id="cart" class="table  table-bordered text-bold text-center">
                                             <thead>
 
                                             <tr>
@@ -50,7 +50,7 @@
                                                         <span class="value">$ {{$product->price * $product->quantity}}</span>
 
                                                     <td>
-                                                        <a onclick="return (confirm('are you sure !')) " class="btn btn-danger fa fa-close" href="{{route('cart.removeItem',$product->id)}}">remove</a>
+                                                        <a onclick="return(confirm('are you sure !'))" class=" removeItem btn btn-danger fa fa-close" href="{{route('cart.removeItem',$product->id)}}">remove</a>
                                                         <a hidden class="  updateItem btn btn-warning fa fa-close" href="{{route('cart.updateItem')}}">update</a>
                                                         <input id="id" type="hidden" value="{{$product->id}}">
                                                     </td>
@@ -170,6 +170,32 @@
             });
 
         });
+        {{--$(document).on('click', '.removeItem', function (e) {--}}
+        {{--    e.preventDefault();--}}
+
+        {{--    tr = $(this).closest('tr');--}}
+        {{--    id = tr.find('#id').val();--}}
+        {{--    url = $(this).attr('href');--}}
+        {{--    $.ajax({--}}
+        {{--        'type': 'POST',--}}
+
+        {{--        'url': url,--}}
+        {{--        data: {--}}
+        {{--            'id': id,--}}
+        {{--            '_token': '{{csrf_token()}}',--}}
+
+        {{--        },--}}
+        {{--        'statusCode': {--}}
+        {{--            200: function (response) {--}}
+
+
+        {{--            },--}}
+        {{--            404: function (response) {--}}
+        {{--            },--}}
+        {{--        }--}}
+        {{--    });--}}
+
+        {{--});--}}
 
     </script>
 @endsection

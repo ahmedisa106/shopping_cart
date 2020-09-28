@@ -29,12 +29,23 @@ class CartController extends Controller
     {
 
         $product = Product::find($id);
-
         if (Cart::get($product->id)['id'] == $id) {
             Cart::remove($id);
-
         }
         return redirect()->back();
+
+//        if ($request->ajax()) {
+//            $product = Product::find($request->id);
+//
+//
+//            if (Cart::get($product->id)['id'] == $request->id) {
+//                Cart::remove($request->id);
+//
+//
+//            }
+//
+//        }
+
 
     }
 
