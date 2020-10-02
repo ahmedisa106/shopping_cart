@@ -3,10 +3,13 @@
 namespace Modules\ProductModule\Entities;
 
 use Astrotomic\Translatable\Translatable;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\OrderModule\Entities\Order;
 
 class Product extends Model
 {
+    use Favoriteable;
 
     use Translatable;
 
@@ -26,6 +29,11 @@ class Product extends Model
     public function photos()
     {
         return $this->hasMany(ProductPhoto::class, 'product_id');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'product_order', 'product_id', 'order_id');
     }
 
 }

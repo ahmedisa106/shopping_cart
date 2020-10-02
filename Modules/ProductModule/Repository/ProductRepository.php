@@ -26,6 +26,11 @@ class ProductRepository
         return Product::with('translations')->get();
     }
 
+    public function getAllActive()
+    {
+        return Product::with('translations')->where('active', 1)->get();
+    }
+
     public function save($productData, $product_photos, $product_cats)
     {
 

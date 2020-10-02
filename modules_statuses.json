@@ -5,5 +5,6 @@
     "ConfigModule": true,
     "UserModule": true,
     "FrontModule": true,
-    "CartModule": true
+    "CartModule": true,
+    "OrderModule": true
 }

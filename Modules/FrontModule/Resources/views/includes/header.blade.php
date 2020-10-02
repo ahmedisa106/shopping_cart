@@ -94,8 +94,10 @@
                         <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                             <div class="wishlist_icon"><img src="{{asset('/assets/front')}}/images/heart.png" alt=""></div>
                             <div class="wishlist_content">
-                                <div class="wishlist_text"><a href="#">Wishlist</a></div>
-                                <div class="wishlist_count">115</div>
+                                <div class="wishlist_text"><a @auth href="{{  route('wishList.view',auth()->user()->id)  }}" @endauth>Wishlist</a></div>
+                                @auth()
+                                    <div class="wishlist_count">{{auth()->user()->favorite(\Modules\ProductModule\Entities\Product::class)->count()}}</div>
+                                @endauth
                             </div>
                         </div>
 

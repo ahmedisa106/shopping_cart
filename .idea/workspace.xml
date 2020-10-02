@@ -20,9 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1072b60-150a-44a3-8a78-6a5d5b4bea3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/pages/wishlist.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shopping_cart.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shopping_cart.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/CartModule/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/CartModule/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Http/Controllers/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Http/Controllers/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/pages/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Resources/views/pages/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FrontModule/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FrontModule/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Entities/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Entities/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Repository/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ProductModule/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ProductModule/Repository/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UserModule/Entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/UserModule/Entities/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,9 +170,13 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/darryldecode/cart" />
+      <path value="$PROJECT_DIR$/vendor/christiankuri/laravel-favorite" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hSYlMGgExSkseCKpYOEvLLcrAC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -165,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../selkon" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../icecart_oudrose" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -213,6 +232,11 @@
       <workItem from="1601170027289" duration="128000" />
       <workItem from="1601281318308" duration="18537000" />
       <workItem from="1601318891188" duration="9756000" />
+      <workItem from="1601365852056" duration="10307000" />
+      <workItem from="1601466413969" duration="1278000" />
+      <workItem from="1601487069338" duration="1223000" />
+      <workItem from="1601537238240" duration="3844000" />
+      <workItem from="1601623731203" duration="5920000" />
     </task>
     <servers />
   </component>
@@ -240,13 +264,13 @@
       <screen x="87" y="0" width="1010" height="617" />
     </state>
     <state x="346" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/87.0.1010.617@87.0.1010.617" timestamp="1600166398335" />
-    <state x="593" y="179" key="FileChooserDialogImpl" timestamp="1601322660012">
+    <state x="593" y="179" key="FileChooserDialogImpl" timestamp="1601624736844">
       <screen x="87" y="0" width="1449" height="864" />
     </state>
     <state x="496" y="156" key="FileChooserDialogImpl/75.0.1205.720@75.0.1205.720" timestamp="1600092489667" />
     <state x="586" y="187" key="FileChooserDialogImpl/75.0.1461.864@75.0.1461.864" timestamp="1600033044924" />
-    <state x="440" y="128" key="FileChooserDialogImpl/87.0.1010.617@87.0.1010.617" timestamp="1601290064113" />
-    <state x="593" y="179" key="FileChooserDialogImpl/87.0.1449.864@87.0.1449.864" timestamp="1601322660012" />
+    <state x="440" y="128" key="FileChooserDialogImpl/87.0.1010.617@87.0.1010.617" timestamp="1601548572963" />
+    <state x="593" y="179" key="FileChooserDialogImpl/87.0.1449.864@87.0.1449.864" timestamp="1601624736844" />
     <state x="116" y="0" key="SettingsEditor" timestamp="1600861798056">
       <screen x="87" y="0" width="1010" height="617" />
     </state>
@@ -260,17 +284,17 @@
       <screen x="87" y="0" width="1449" height="864" />
     </state>
     <state x="180" y="93" width="1263" height="678" key="dock-window-1/87.0.1449.864@87.0.1449.864" timestamp="1601320625083" />
-    <state x="301" y="138" width="672" height="677" key="run.anything.popup" timestamp="1601297044302">
+    <state x="301" y="138" width="672" height="677" key="run.anything.popup" timestamp="1601369589037">
       <screen x="87" y="0" width="1010" height="617" />
     </state>
     <state x="334" y="161" key="run.anything.popup/75.0.1205.720@75.0.1205.720" timestamp="1600087365413" />
-    <state x="301" y="138" width="672" height="677" key="run.anything.popup/87.0.1010.617@87.0.1010.617" timestamp="1601297044302" />
-    <state x="474" y="181" width="965" height="680" key="search.everywhere.popup" timestamp="1601322006905">
-      <screen x="87" y="0" width="1449" height="864" />
+    <state x="301" y="138" width="672" height="677" key="run.anything.popup/87.0.1010.617@87.0.1010.617" timestamp="1601369589037" />
+    <state x="357" y="129" width="672" height="485" key="search.everywhere.popup" timestamp="1601369056362">
+      <screen x="87" y="0" width="1010" height="617" />
     </state>
     <state x="399" y="151" width="672" height="565" key="search.everywhere.popup/75.0.1205.720@75.0.1205.720" timestamp="1600075554828" />
     <state x="468" y="181" width="672" height="678" key="search.everywhere.popup/75.0.1461.864@75.0.1461.864" timestamp="1600026467617" />
-    <state x="357" y="129" width="672" height="485" key="search.everywhere.popup/87.0.1010.617@87.0.1010.617" timestamp="1600936790791" />
+    <state x="357" y="129" width="672" height="485" key="search.everywhere.popup/87.0.1010.617@87.0.1010.617" timestamp="1601369056362" />
     <state x="474" y="181" width="965" height="680" key="search.everywhere.popup/87.0.1449.864@87.0.1449.864" timestamp="1601322006905" />
   </component>
 </project>

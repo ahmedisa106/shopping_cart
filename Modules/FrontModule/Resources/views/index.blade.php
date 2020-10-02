@@ -203,8 +203,20 @@
 
                                                     </div>
                                                 </div>
-                                                <div class=" product_fav"><i class="fas fa-heart"></i>
-                                                </div>
+                                                <a href="{{route('wishlist.add',$product->id)}}">
+                                                    @auth()
+                                                        <div class="product_fav">
+
+                                                            @if(auth()->user()->isFavorited($product))
+                                                                <i class="fa fa-heart checked" style="color: red"></i>
+                                                            @else
+                                                                <i class="fa fa-heart"></i>
+
+                                                            @endif
+
+                                                        </div>
+                                                    @endauth
+                                                </a>
                                                 <ul class="product_marks">
                                                     <li class="product_mark product_new">new</li>
                                                 </ul>
@@ -299,7 +311,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                                <div class="product_fav"><a href="{{route('wishlist.add',$b_pro->id)}}"><i class="fas fa-heart"></i></a></div>
                                                 <ul class="product_marks">
                                                     <li class="product_mark product_discount">-25%</li>
                                                     <li class="product_mark product_new">new</li>
@@ -3118,5 +3130,8 @@
     {{--    </script>--}}
 
 
+    <script>
 
+
+    </script>
 @endsection

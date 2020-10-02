@@ -171,6 +171,10 @@ return [
         /*cart*/
         Darryldecode\Cart\CartServiceProvider::class,
 
+        /*Favorite*/
+        ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */
