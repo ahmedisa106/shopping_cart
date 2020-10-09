@@ -22,7 +22,7 @@
               </span>
             </div>
         </form>
-        <!-- /.search form -->
+        <!-- /.search form --
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
@@ -34,6 +34,22 @@
                 </a>
 
             </li>
+
+            <li class=" treeview">
+                <a href="{{route('dashboard')}}">
+                    <i class="fa fa-dashboard"></i> <span>Services</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="">
+                        <a href="{{route('servicesCategories.index')}}"><i class="fa fa-circle-o"></i>@lang('commonmodule::site.categories')</a>
+                        <a href="{{route('services.index')}}"><i class="fa fa-circle-o"></i>Services</a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class=" treeview">
                 <a href="{{route('dashboard')}}">
@@ -53,6 +69,13 @@
             <li>
                 <a href="{{route('users.index')}}">
                     <i class="fa fa-users"></i> <span>@lang('commonmodule::site.clients')</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{route('orders.index')}}">
+                    <i class="fa fa-users"></i> <span>Orders</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

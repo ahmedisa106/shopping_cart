@@ -4,6 +4,7 @@ namespace Modules\OrderModule\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\ProductModule\Entities\Product;
+use Modules\UserModule\Entities\User;
 
 class Order extends Model
 {
@@ -19,5 +20,11 @@ class Order extends Model
     function orderProducts()
     {
         return $this->hasMany(ProductOrder::class, 'order_id')->where('quantity', '>', 0);
+    }
+
+    public function user()
+    {
+
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -5,8 +5,10 @@ namespace Modules\OrderModule\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\OrderModule\Entities\Order;
+use Yajra\DataTables\DataTables;
 
-class OrderModuleController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,38 @@ class OrderModuleController extends Controller
      */
     public function index()
     {
-        return view('ordermodule::index');
+        return view('ordermodule::orders.index');
+    }
+
+    public function dataTable()
+    {
+
+        $orders = Order::with('user')->get();
+
+
+        return DataTables::of($orders)
+            ->addColumn('client', function ($row) {
+
+                return $row->user->name;
+            })
+            ->addColumn('address', function ($row) {
+
+                return $row->user->address;
+
+            })
+            ->addColumn('phone', function ($row) {
+
+                return $row->user->phone;
+            })
+            ->addColumn('operations', function ($row) {
+                $edit = '<a>edit</a>';
+                $delete = '<a>delete</a>';
+
+                return $edit . ' ' . $delete;
+
+            })
+            ->rawColumns(['operations' => 'operations', 'edit' => 'edit', 'delete' => 'delete'])
+            ->make(true);
     }
 
     /**

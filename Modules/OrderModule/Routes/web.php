@@ -11,6 +11,14 @@
 |
 */
 
-Route::prefix('ordermodule')->group(function() {
-    Route::get('/', 'OrderModuleController@index');
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
+
+
+    Route::resource('orders', 'OrdersController')->except('show');
+    Route::get('/orders/dataTable', 'OrdersController@datatable')->name('orders.dataTable');
 });
